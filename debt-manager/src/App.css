@@ -1,0 +1,76 @@
+.createProfile {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+ 
+}
+.step{
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit{
+  margin: 10px;
+  background-color: rgb(138, 138, 214);
+}
+
+.card{
+  margin: 10px;
+  background-color: rgb(235, 189, 241);
+  display:flex;
+  justify-content: space-between;
+
+
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+}
+
+.CreateTransaction{
+  background-color: rgb(241, 131, 131);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ShowTransaction{
+  color: rgb(7, 109, 109);
+  display: flex;
+  margin:3px;
+  justify-content: space-evenly;
+  background-color: rgba(214, 206, 206, 0.623);
+}
+
+.show-Transaction-unit{
+  margin-left: 2px;
+  width:3vw;
+}
+
+.transactionHeader{
+  
+  color:rgb(226, 76, 16);
+  display: flex;
+  margin:3px;
+  justify-content: space-evenly;
+  background-color: rgba(247, 236, 236, 0.623);
+}
+
+.loans{
+  margin-bottom: 30px;
+}
+
+.transaction-ele{
+  background-color: rgb(129, 230, 162);
+  display: flex;
+  margin:3px;
+}
+
+.transaction-ele-unit{
+  margin : 2vw;
+  
+}
