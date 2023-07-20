@@ -8,10 +8,7 @@ import LoansStatusSections from './pages/index'
 import ShowProfile from './pages/accountDetails.jsx'
 
 
-let transactionsObject = [{name:"mani",village:"ullagallu",ph:"9701836209",amountDue:"100000"},
-{name:"mani kanta",village:"ullagallu",ph:"9701836209",amountDue:"100000"},
-{name:"vathala mani kanta",village:"ullagallu",ph:"9701836209",amountDue:"100000"},
-]
+
 
 function App() {
   
@@ -22,7 +19,7 @@ function App() {
 
     <BrowserRouter>
     <Routes>
-      <Route path="/" element={<LoansStatusSections data = {transactionsObject}/>}/>
+      <Route path="/" element={<LoansStatusSections/>}/>
       <Route path="/accountDetails" element={<ShowProfile />} />
     </Routes>
     </BrowserRouter>

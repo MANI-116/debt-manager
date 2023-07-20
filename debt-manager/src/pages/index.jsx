@@ -1,7 +1,14 @@
 
 import { useNavigate } from "react-router-dom"
+import {useState} from 'react'
 
-export default function LoansStatusSections(props){
+let transactionsObject = [{name:"mani",village:"ullagallu",ph:"9701836209",amountDue:"100000"},
+{name:"mani kanta",village:"ullagallu",ph:"9701836209",amountDue:"100000"},
+{name:"vathala mani kanta",village:"ullagallu",ph:"9701836209",amountDue:"100000"},
+]
+
+export default function LoansStatusSections(){
+  const [transactionStatus,setTransactionStatus] = useState(transactionsObject)
 
     return(
         <>
@@ -9,11 +16,11 @@ export default function LoansStatusSections(props){
 
             <div className='loans'>
             {
-            props.data.map((t) => <ShowTransaction name={t.name} village={t.village} ph={t.ph} amountDue={t.amountDue} />)
+            transactionStatus.map((t) => <ShowTransaction name={t.name} village={t.village} ph={t.ph} amountDue={t.amountDue} />)
             }
 
             </div>
-            <CreateProfile />
+            <CreateProfile setTransactionStatus={setTransactionStatus} transactionStatus={transactionStatus}/>
         </>
     )
 }
@@ -51,7 +58,20 @@ function ShowTransaction(props){
     )
   }
 
-  function CreateProfile(){
+  function CreateProfile(props){
+
+    const [name,setName] = useState('');
+    const [village,setVillage] = useState('');
+    const [phone,setPhone] = useState('');
+    const [amount,setAmount] = useState('');
+
+    function handleCreateClick(){
+
+      let currentStatus = [...props.transactionStatus]
+      currentStatus.push({name,village,ph:phone,amountDue:amount})
+      props.setTransactionStatus(currentStatus)
+
+    }
 
     return (
   
@@ -61,26 +81,26 @@ function ShowTransaction(props){
        
           <div className='step'>
           <label htmlFor="">name:</label>
-          <input type="text" name="" id="" />
+          <input type="text" name="" id=""  onChange={(e)=>setName(e.target.value)}/>
           </div>
   
             <div className='step'>  
             <label htmlFor="">village:</label>
-            <input type="text" name="" id="" />
+            <input type="text" name="" id="" onChange={(e)=>setVillage(e.target.value)} />
              </div>
         
   
         <div className='step'>
         <label htmlFor="">phone number:</label>
-        <input type="text" name="" id="" />
+        <input type="text" name="" id="" onChange={(e)=>setPhone(e.target.value)} />
         </div>
   
         <div className='step'>
         <label htmlFor="">amount:</label>
-        <input type="text" name="" id="" />
+        <input type="text" name="" id="" onChange={(e)=>setAmount(e.target.value)}/>
         </div>
   
-        <button className= 'submit' type='submit'>Create</button>
+        <button className= 'submit' type='submit' onClick={handleCreateClick}>Create</button>
   
       </div>
   
